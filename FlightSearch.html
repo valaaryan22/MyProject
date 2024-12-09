@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="Flight.js"></script>
+    <title>AirGo</title>
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top"
+            style="background-color: rgba(255, 255, 255, 0.8); width: 100%; text-align: center; position: absolute;">
+            <div class="container">
+                <div class="nav__logo">
+                    <button onclick="home()" onsubmit="home()"><img src="logo.png" alt="Airgo" height="80px"
+                            width="150px"></button>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Feedback.html">Feedback</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="faq.html">FAQ's</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Flight.html">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const loggedInUser = localStorage.getItem('loggedInUser');
+
+                        if (loggedInUser) {
+                            const usernameParagraph = document.getElementById('usernameParagraph');
+                            usernameParagraph.textContent = loggedInUser;
+                        } else {
+                            console.error('Username not found in localStorage.');
+                        }
+                    });
+                </script>
+                <div class="form__group">
+                    <span><i class="ri-user-3-line">
+                            <span id="usernameParagraph"></span>
+                        </i></span>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <br><br><br><br><br>
+
+    <div class="container">
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const departure = document.querySelectorAll('.departureParagraph');
+                departure.forEach(function (departureElement) {
+                    const departure = localStorage.getItem('departure');
+                    if (departure) {
+                        departureElement.textContent = departure;
+                    }
+                });
+                const destination = document.querySelectorAll('.destinationParagraph');
+                destination.forEach(function (destinationElement) {
+                    const destination = localStorage.getItem('destination');
+                    if (destination) {
+                        destinationElement.textContent = destination;
+                    }
+                });
+                const dates = document.querySelectorAll('.dateParagraph');
+                dates.forEach(function (dateElement) {
+                    const date = localStorage.getItem('date');
+                    if (date) {
+                        dateElement.textContent = date;
+                    }
+                });
+
+                const persons = document.querySelectorAll('.personsParagraph');
+                persons.forEach(function (personsElement) {
+                    const person = localStorage.getItem('persons');
+                    if (person) {
+                        personsElement.textContent = person;
+                    }
+                });
+
+                const classTypes = document.querySelectorAll('.classTypeParagraph');
+                classTypes.forEach(function (classTypeElement) {
+                    const classType = localStorage.getItem('classType');
+                    if (classType) {
+                        classTypeElement.textContent = classType;
+                    }
+                });
+            });
+        </script>
+        <section class="section__container booking__container">
+            <h1 style="text-align: center; background-color: aqua; border: 2px solid black;">Entered Details</h1>
+            <form>
+                <div class="form__group">
+                    <span><i class="ri-map-pin-line"></i></span>
+                    <div class="input__content">
+                        <div class="input__group">
+                            <span class="departureParagraph"></span>
+                        </div>
+                        <p>Departure</p>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <span><i class="ri-plane-line"></i></span>
+                    <div class="input__content">
+                        <div class="input__group">
+                            <span class="destinationParagraph"></span>
+                        </div>
+                        <p>Destination</p>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <span><i class="ri-calendar-line"></i></span>
+                    <div class="input__content">
+                        <div class="input__group">
+                            <span class="dateParagraph"></span>
+                        </div>
+                        <p>Entered Date</p>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <span><i class="ri-user-3-line"></i></span>
+                    <div class="input__content">
+                        <div class="input__group">
+                            <span class="personsParagraph"></span>
+                        </div>
+                        <p>Persons</p>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <span><i class="ri-plane-line"></i></span>
+                    <div class="input__content">
+                        <div class="input__group">
+                            <span class="classTypeParagraph"></span>
+                        </div>
+                        <p>Entered class</p>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <div class="container">
+            <table class="flightTable" cellspacing="10" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th colspan="6">
+                            <h1>Available Flight Schedule </h1>
+                            <h1>
+                                <pre>(<span class="departureParagraph"></span> -> <span class="destinationParagraph"></span>)</pre>
+                            </h1>
+                        </th>
+                    </tr>
+                </thead>
+                <thead>
+                    <tr>
+                        <th>Airline</th>
+                        <th>Date </th>
+                        <th>Time</th>
+                        <th>Ratings</th>
+                        <th>Fare</th>
+                        <th>Conformation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="airlineParagraph">QATAR AIRWAYS</td>
+                        <td rowspan="2"> <span class="dateParagraph"></span> </td>
+                        <td>10:15 AM - 5:30 PM</td>
+                        <td rowspan="2">8.5 out of 10</td>
+                        <td>₹10,000</td>
+                        <td rowspan="2"><button class="btn" onclick="confirmed1()">Book Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>8 Hours Duration</td>
+                        <td>Per Passenger</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">QATAR AIRWAYS</td>
+                        <td rowspan="2"> <span class="dateParagraph"></span> </td>
+                        <td>2:00 PM - 9:30 PM</td>
+                        <td rowspan="2">8.5 out of 10</td>
+                        <td>₹12,000</td>
+                        <td rowspan="2"><button class="btn" onclick="confirmed2()">Book Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>8 hours Duration</td>
+                        <td>Per Passenger</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">AIR INDIA</td>
+                        <td rowspan="2"> <span class="dateParagraph"></span> </td>
+                        <td>11:30 AM - 6:30 PM</span></td>
+                        <td rowspan="2">9.5 out of 10</td>
+                        <td>₹14,500</td>
+                        <td rowspan="2"><button class="btn" onclick="confirmed3()">Book Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>7 Hours Duration</td>
+                        <td>Per Passenger</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">AIR INDIA</td>
+                        <td rowspan="2"> <span class="dateParagraph"></span> </td>
+                        <td>3:00 PM - 10:00 PM</td>
+                        <td rowspan="2">9.5 out of 10</td>
+                        <td>₹15,000</td>
+                        <td rowspan="2"><button class="btn" onclick="confirmed4()">Book Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>7 hours Duration</td>
+                        <td>Per Passenger</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">INDIGO AIRLINE</td>
+                        <td rowspan="2"> <span class="dateParagraph"></span> </td>
+                        <td>1:00 PM - 7:00 PM</span></td>
+                        <td rowspan="2">8 out of 10</td>
+                        <td>₹18,000</td>
+                        <td rowspan="2"><button class="btn" onclick="confirmed5()">Book Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>7 Hours Duration</td>
+                        <td>Per Passenger</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">INDIGO AIRLINE</td>
+                        <td rowspan="2"> <span class="dateParagraph"></span> </td>
+                        <td>4:00 PM - 11:00 PM</td>
+                        <td rowspan="2">8 out of 10</td>
+                        <td>₹16,000</td>
+                        <td rowspan="2"><button class="btn" onclick="confirmed6()">Book Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>7 hours Duration</td>
+                        <td>Per Passenger</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">VISTARA AIRLINE</td>
+                        <td rowspan="2"> <span class="dateParagraph"></span> </td>
+                        <td>7:30 AM - 4:00 PM</span></td>
+                        <td rowspan="2">7.5 out of 10</td>
+                        <td>₹14,000</td>
+                        <td rowspan="2"><button class="btn" onclick="confirmed7()">Book Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>8.5 Hours Duration</td>
+                        <td>Per Passenger</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">VISTARA AIRLINE</td>
+                        <td rowspan="2"> <span class="dateParagraph"></span> </td>
+                        <td>12:00 PM - 7:30 PM</td>
+                        <td rowspan="2">7.5 out of 10</td>
+                        <td>₹16,000</td>
+                        <td rowspan="2"><button class="btn" onclick="confirmed8()">Book Now</button></td>
+                    </tr>
+                    <tr>
+                        <td>8.5 hours Duration</td>
+                        <td>Per Passenger</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <br>
+    <br>
+
+
+
+
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h3>AirGo</h3>
+                <p>
+                    Where Excellence Takes Flight. With a strong commitment to customer
+                    satisfaction and a passion for air travel, AirGo Airlines offers
+                    exceptional service and seamless journeys.
+                </p>
+                <p>
+                    From friendly smiles to state-of-the-art aircraft, we connect the
+                    world, ensuring safe, comfortable, and unforgettable experiences.
+                </p>
+            </div>
+            <div class="footer__col">
+                <h4>INFORMATION</h4>
+                <p><a href="Home.html"><input type="button" value="Home"></a></p>
+                <p><a href="Feedback.html"><input type="button" value="Feedback"></a></p>
+                <p><a href="aboutus.html"><input type="button" value="About Us"></p>
+                <p><a href="faq.html"><input type="button" value="FAQ's"></a></p>
+                <p><a href="Flight.html"><input type="button" value="Log Out"></a></p>
+            </div>
+            <div class="footer__col">
+                <h4>CONTACT US</h4>
+                <p>Toll Free No : <br> 180021212121</p><br>
+                <p>Email-Id : AirgoAirways2024@gmail.com</p><br>
+                <div class="socials">
+                    <a href="https://www.facebook.com/"><i class="ri-facebook-fill"
+                            style="background-color:white ;"></i></a>
+                    <a href="https://www.instagram.com/"><i class="ri-instagram-line"
+                            style="background-color: white;"></i>
+                        </i> </a>
+                    <a href="https://www.twitter.com/"><i class="ri-twitter-fill" style="background-color:white ;">
+                        </i> </a>
+                    <a href="https://www.youtube.com/"><i class="ri-youtube-fill" style="background-color:white ;">
+                        </i> </a>
+                </div>
+            </div>
+        </div>
+        <div class="section__container footer__bar">
+            <p>Copyright ©. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

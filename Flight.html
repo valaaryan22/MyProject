@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="Flight.js"></script>
+    <title>AirGo</title>
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top"
+            style="background-color: rgba(255, 255, 255, 0.8); width: 100%; text-align: center; position: absolute;">
+            <div class="container">
+                <div class="nav__logo">
+                    <button onclick="home1()" onsubmit="home1()"><img src="logo.png" alt="Airgo" height="80px"
+                            width="150px"></button>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="form__group">
+                    <span><i class="ri-user-3-line"> Please Login / Register First </i></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Carousel -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- The slideshow/carousel -->
+        <div id="carouselExampleSlidesOnly" class="carousel slide upper-carousel" data-bs-ride="carousel"
+            data-bs-interval="3000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://wallpaperaccess.com/full/1307415.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption text-start text-section">
+                        <h3>We Dare You!</h3>
+                        <h1>To Explore The Unknown!</h1>
+                        <p>Discover your next great adventure,<br>become an explorer to get started!</p>
+                        <a href="#" class="btn dare-btn">Explore Now</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://wallpaperbat.com/img/499532-aircraft-airplane-landing-strip-airport-wallpaper.jpg "
+                        class="d-block w-100" alt="...">
+                    <div class="carousel-caption text-start text-section">
+                        <h3>We Dare You!</h3>
+                        <h1>To Explore The Unknown!</h1>
+                        <p>Discover your next great adventure,<br>become an explorer to get started!</p>
+                        <a href="#" class="btn dare-btn">Explore Now</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://wallpaperaccess.com/full/5848743.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption text-start text-section">
+                        <h3>We Dare You!</h3>
+                        <h1>To Explore The Unknown!</h1>
+                        <p>Discover your next great adventure,<br>become an explorer to get started!</p>
+                        <a href="#" class="btn dare-btn">Explore Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev"
+            style="color: black;">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <br>
+    <br>
+
+    <body id="divLogin">
+        <div>
+            <div class="containerLogin">
+                <div class="login-container">
+                    <h2>Login</h2>
+                    <input type="text" id="username" placeholder="Username" class="input-fieldLogin">
+                    <input type="password" id="password" placeholder="Password" class="input-fieldLogin">
+                    <button onclick="login()" class="buttonLogin">Login</button>
+                </div>
+            </div>
+            <div class="containerLogin">
+                <h3>Or</h3>
+            </div>
+
+            <div class="containerLogin">
+                <div class="register-container">
+                    <h2>Register</h2>
+                    <input type="text" id="reg-username" placeholder="Username" class="input-fieldLogin">
+                    <input type="email" id="email" placeholder="Email" class="input-fieldLogin">
+                    <input type="tel" id="phone" placeholder="Phone Number" class="input-fieldLogin">
+                    <input type="password" id="reg-password" placeholder="Password" class="input-fieldLogin">
+                    <input type="password" id="confirm-password" placeholder="Confirm Password"
+                        class="input-fieldLogin">
+                    <button onclick="register()" class="buttonLogin">Register</button>
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h3>AirGo</h3>
+                <p>
+                    Where Excellence Takes Flight. With a strong commitment to customer
+                    satisfaction and a passion for air travel, AirGo Airlines offers
+                    exceptional service and seamless journeys.
+                </p>
+                <p>
+                    From friendly smiles to state-of-the-art aircraft, we connect the
+                    world, ensuring safe, comfortable, and unforgettable experiences.
+                </p>
+            </div>
+            <div class="footer__col">
+            </div>
+            <div class="footer__col">
+                <h4>CONTACT US</h4>
+                <p>Toll Free No : <br> 180021212121</p><br>
+                <p>Email-Id : AirgoAirways2024@gmail.com</p><br>
+                <div class="socials">
+                    <a href="https://www.facebook.com/"><i class="ri-facebook-fill"
+                            style="background-color:white ;"></i></a>
+                    <a href="https://www.instagram.com/"><i class="ri-instagram-line"
+                            style="background-color: white;"></i>
+                        </i> </a>
+                    <a href="https://www.twitter.com/"><i class="ri-twitter-fill" style="background-color:white ;">
+                        </i> </a>
+                    <a href="https://www.youtube.com/"><i class="ri-youtube-fill" style="background-color:white ;">
+                        </i> </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section__container footer__bar">
+            <p>Copyright © 2024 Web Design Mastery. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

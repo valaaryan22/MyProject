@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="Flight.js"></script>
+    <title>AirGo</title>
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top"
+            style="background-color: rgba(255, 255, 255, 0.8); width: 100%; text-align: center; position: absolute;">
+            <div class="container">
+                <div class="nav__logo">
+                    <button onclick="home()" onsubmit="home()"><img src="logo.png" alt="Airgo" height="80px"
+                            width="150px"></button>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Feedback.html">Feedback</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="faq.html">FAQ's</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Flight.html">Log Out</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const loggedInUser = localStorage.getItem('loggedInUser');
+
+                        if (loggedInUser) {
+                            const usernameParagraph = document.getElementById('usernameParagraph');
+                            usernameParagraph.textContent = loggedInUser;
+                        } else {
+                            console.error('Username not found in localStorage.');
+                        }
+                    });
+                </script>
+                <div class="form__group">
+                    <span><i class="ri-user-3-line">
+                            <span id="usernameParagraph"></span>
+                        </i></span>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <br><br><br><br><br><br>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const departure = document.querySelectorAll('.departureParagraph');
+            departure.forEach(function (departureElement) {
+                const departure = localStorage.getItem('departure');
+                if (departure) {
+                    departureElement.textContent = departure;
+                }
+            });
+            const destination = document.querySelectorAll('.destinationParagraph');
+            destination.forEach(function (destinationElement) {
+                const destination = localStorage.getItem('destination');
+                if (destination) {
+                    destinationElement.textContent = destination;
+                }
+            });
+            const dates = document.querySelectorAll('.dateParagraph');
+            dates.forEach(function (dateElement) {
+                const date = localStorage.getItem('date');
+                if (date) {
+                    dateElement.textContent = date;
+                }
+            });
+
+            const persons = document.querySelectorAll('.personsParagraph');
+            persons.forEach(function (personsElement) {
+                const person = localStorage.getItem('persons');
+                if (person) {
+                    personsElement.textContent = person;
+                }
+            });
+
+            const classTypes = document.querySelectorAll('.classTypeParagraph');
+            classTypes.forEach(function (classTypeElement) {
+                const classType = localStorage.getItem('classType');
+                if (classType) {
+                    classTypeElement.textContent = classType;
+                }
+            });
+            let airline1 = localStorage.getItem('airline1');
+            let time1 = localStorage.getItem('time1');
+            let duration1 = localStorage.getItem('duration1');
+            let ratings1 = localStorage.getItem('ratings1');
+            let fare1 = localStorage.getItem('fare1');
+            let bill1 = localStorage.getItem('bill1');
+            let gst1 = localStorage.getItem('gst1');
+            let fee1 = localStorage.getItem('fee1');
+            let totalBill1 = localStorage.getItem('totalBill1');
+            document.getElementById("airline1").innerHTML = airline1;
+            document.getElementById("time1").innerHTML = time1;
+            document.getElementById("duration1").innerHTML = duration1;
+            document.getElementById("ratings1").innerHTML = ratings1;
+            document.getElementById("fare1").innerHTML = fare1;
+            document.getElementById("bill1").innerHTML = bill1;
+            document.getElementById("totalBill1").innerHTML = totalBill1;
+            document.getElementById("fee1").innerHTML = fee1;
+            document.getElementById("gst1").innerHTML = gst1;
+        });
+    </script>
+
+    <div
+        style="display: flex; justify-content: space-around; text-align:center; margin-left: 180px;margin-bottom :100px;margin-right: 200px;background-color: #f2f2f2;">
+        <div class="flightDetails" style="display: flex; justify-content: space-around; text-align:center;">
+            <table style="margin-left: 50px;">
+                <thead>
+                    <th colspan="3" style="font-size: 30px; font-weight: bolder;">SELECTED FLIGHT DETAILS</th>
+                </thead>
+                <tr>
+                    <td>Airline </td>
+                    <td>:</td>
+                    <td><span id="airline1"></span></td>
+                </tr>
+                <tr>
+                    <td>Flight Ratings</td>
+                    <td>:</td>
+                    <td><span id="ratings1"></span></td>
+                </tr>
+                <tr>
+                    <td>Route</td>
+                    <td>:</td>
+                    <td><span class="departureParagraph"></span> -> <span class="destinationParagraph"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Type Of Seat</td>
+                    <td>:</td>
+                    <td><span class="classTypeParagraph"></span></td>
+                </tr>
+                <tr>
+                    <td>Passengers</td>
+                    <td>:</td>
+                    <td><span class="personsParagraph"></span> Passengers</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>:</td>
+                    <td><span class="dateParagraph"></span> </td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td>:</td>
+                    <td><span id="time1"></span></td>
+                </tr>
+                <tr>
+                    <td>Flight Duration</td>
+                    <td>:</td>
+                    <td><span id="duration1"></span></td>
+                </tr>
+                <tr>
+                    <td>Fare</td>
+                    <td>:</td>
+                    <td>₹<span id="fare1"></span> Per Passenger</td>
+                    <br>
+                </tr>
+            </table>
+
+            <table style="margin-left: 100px;">
+                <thead>
+                    <th colspan="2">
+                        PAYMENT DETAILS CONFORMATION
+                    </th>
+                </thead>
+                <tr>
+                    <td><label for="Name">Name : </label></td>
+                    <td><input type="text" id="name" class="input-field" placeholder="Ex. abc" required><br></td>
+                </tr>
+                <tr>
+                    <td><label for="Email">Email-Id : </label></td>
+                    <td> <input type="email" id="email" class="input-field" placeholder="Ex. abc@gmail.com"
+                            required><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="Number">Contact No : </label></td>
+                    <td><input type="tel" id="phone" class="input-field" placeholder="Ex. 9876543210" required> <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="Credit Card Number">Card Number : </label></td>
+                    <td><input type="number" id="card" class="input-field" placeholder="0000 0000 0000 0000"
+                            min="1000000000000000" max="9999999999999999" required><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="CVV">CVV : </label></td>
+                    <td><input type="number" id="cvv" class="input-field" placeholder="123" min="100" max="999"
+                            required><br></td>
+                </tr>
+                <tr>
+                    <td><label for="Pin">Card Pin : </label></td>
+                    <td><input type="password" id="pin" class="input-field" placeholder="Ex. 1234" min="1000" max="9999"
+                            required><br></td>
+                </tr>
+                <tr>
+                    <td rowspan="4"><label for="Bill">Total Bill : </label></td>
+                    <td style="margin: 0; padding: 0;">
+                        <p>₹ <span id="bill1"></span> (Flight Charges) + </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="margin: 0;padding: 0;">
+                        <p> ₹ <span id="gst1"></span> (18% GST) + </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="margin: 0;padding: 0;">
+                        <p> ₹ <span id="fee1"></span> (1% Platform Fee) = </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="margin: 0;padding: 0;">
+                        <p> ₹ <span id="totalBill1"></span> (Total Amount) </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" class="submit-button" value="Confirm Payment"
+                            onclick="confirmPayment()"></td>
+                </tr>
+            </table>
+        </div>
+        <br>
+    </div>
+    </div>
+
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h3>AirGo</h3>
+                <p>
+                    Where Excellence Takes Flight. With a strong commitment to customer
+                    satisfaction and a passion for air travel, AirGo Airlines offers
+                    exceptional service and seamless journeys.
+                </p>
+                <p>
+                    From friendly smiles to state-of-the-art aircraft, we connect the
+                    world, ensuring safe, comfortable, and unforgettable experiences.
+                </p>
+            </div>
+            <div class="footer__col">
+                <h4>INFORMATION</h4>
+                <p><a href="Home.html"><input type="button" value="Home"></a></p>
+                <p><a href="Feedback.html"><input type="button" value="Feedback"></a></p>
+                <p><a href="aboutus.html"><input type="button" value="About Us"></p>
+                <p><a href="faq.html"><input type="button" value="FAQ's"></a></p>
+                <p><a href="Flight.html"><input type="button" value="Log Out"></a></p>
+            </div>
+            <div class="footer__col">
+                <h4>CONTACT US</h4>
+                <p>Toll Free No : <br> 180021212121</p><br>
+                <p>Email-Id : AirgoAirways2024@gmail.com</p><br>
+                <div class="socials">
+                    <a href="https://www.facebook.com/"><i class="ri-facebook-fill"
+                            style="background-color:white ;"></i></a>
+                    <a href="https://www.instagram.com/"><i class="ri-instagram-line"
+                            style="background-color: white;"></i>
+                        </i> </a>
+                    <a href="https://www.twitter.com/"><i class="ri-twitter-fill" style="background-color:white ;">
+                        </i> </a>
+                    <a href="https://www.youtube.com/"><i class="ri-youtube-fill" style="background-color:white ;">
+                        </i> </a>
+                </div>
+            </div>
+        </div>
+        <div class="section__container footer__bar">
+            <p>Copyright ©. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
